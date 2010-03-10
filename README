@@ -1,0 +1,40 @@
+CascadingAssets
+===============
+
+Cascading Assets enhances the behaviour of both the javascript_include_tag and
+stylesheet_link_tag helpers to automatically include controller and action
+specific files.
+
+Only files that exist in the following directory structure will be included:
+
+/public
+  /javascripts
+    application.js
+    [controller].js
+    [controller]/[action].js
+  /stylesheets
+    application.css
+    [controller].css
+    [controller]/[action].css
+ 
+Usage
+=====
+ 
+To use, simply call javascript_include_tag or stylesheet_link_tag from your view
+with :cascades as follows:
+ 
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+      ...
+      <%= stylesheet_link_tag :cascades %>
+    </head>
+    <body>
+      ...
+      <%= javascript_include_tag :cascades %>
+    </body>
+  </html>
+ 
+
+Copyright (c) 2008 Adnova Inc, released under the MIT license
