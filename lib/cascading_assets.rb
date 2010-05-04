@@ -27,7 +27,7 @@ module ActionView::Helpers::AssetTagHelper
 
   def expand_cascading_sources(sources, dir, extension)
     if sources.delete(:cascades)
-      ['application', @controller.active_layout.try(:name), @controller.controller_name, "#{@controller.controller_name}/#{@controller.action_name}"].compact.uniq.each do |source|
+      ['application', @controller.active_layout.try(:name), @controller.controller_path.split('/').first, @controller.controller_name, "#{@controller.controller_name}/#{@controller.action_name}"].compact.uniq.each do |source|
         sources << source if File.exists?(File.join(dir, "#{source}.#{extension}"))
       end
     end
